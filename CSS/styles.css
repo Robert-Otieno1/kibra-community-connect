@@ -1,158 +1,126 @@
-/* Basic Reset */
-* {
+/* Reset some default styles */
+body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
-}
-
-header {
-    text-align: center;
-    background-color: #3a7d44;
-    color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    margin-bottom: 10px;
-}
-
-header p {
-    margin-bottom: 10px;
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
+    list-style-type: none;
+}
+
+/* Basic body styling */
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header/Banner styling */
+.banner {
+    background-image: url('your-banner-image-url.jpg'); /* Replace with your banner image URL */
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.banner-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.banner-text p {
+    font-size: 1.2em;
+}
+
+/* Navigation styling */
+nav {
+    background: #3b8f57; /* Green background for nav */
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
-nav ul li a {
+nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Section styling */
 section {
-    background: white;
     padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    margin-bottom: 10px;
-    color: #3a7d44;
+    margin-bottom: 15px;
 }
 
-ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-a {
-    color: #3a7d44;
-    text-decoration: none;
-}
-
-button {
-    background-color: #3a7d44;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #2f6137;
-}
-
+/* Footer styling */
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #3a7d44;
+    background: #3b8f57;
     color: white;
-    position: fixed;
-    width: 100%;
+    position: relative;
     bottom: 0;
+    width: 100%;
 }
 
-
-/* Media Queries for Responsiveness */
-
-/* For screens smaller than 768px (tablets and mobile phones) */
+/* Responsive styles */
 @media (max-width: 768px) {
-    body {
-        padding: 10px;
+    .banner {
+        height: 200px;
     }
 
-    header {
-        padding: 15px;
+    .banner-text h1 {
+        font-size: 2em;
     }
 
-    header h1 {
-        font-size: 24px;
+    .banner-text p {
+        font-size: 1em;
     }
 
-    header p {
-        font-size: 14px;
+    nav ul {
+        flex-direction: column;
     }
 
     nav ul li {
-        display: block;
-        margin-bottom: 10px;
+        margin: 10px 0;
     }
 
     section {
+        margin: 10px;
         padding: 15px;
-    }
-
-    button {
-        width: 100%;
-        padding: 12px;
-    }
-
-    footer {
-        padding: 15px;
-        position: static;
     }
 }
 
-/* For screens smaller than 480px (mobile phones) */
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 20px;
+    .banner-text h1 {
+        font-size: 1.5em;
     }
 
-    header p {
-        font-size: 12px;
-    }
-
-    button {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    section {
-        padding: 10px;
-    }
-
-    nav ul li {
-        text-align: center;
+    .banner-text p {
+        font-size: 0.9em;
     }
 }
