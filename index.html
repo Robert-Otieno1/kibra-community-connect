@@ -4,87 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kibra Community Connect</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./CSS/styles.css">
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <h1>Kibra Community Connect</h1>
-        <p>Bridging Kibra with job opportunities, skill development, and support services.</p>
-        <nav>
-            <ul>
-                <li><a href="#jobs">Job Listings</a></li>
-                <li><a href="#skills">Skill Development Resources</a></li>
-                <li><a href="#mental-health">Mental Health Support</a></li>
-                <li><a href="#announcements">Community Announcements</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="banner">
+        <div class="banner-text">
+            <h1>Welcome to Kibra Community Connect</h1>
+            <p>Bridging Kibra with job opportunities, skill development, and support services</p>
+        </div>
     </header>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Brief Introduction -->
-        <section id="intro">
-            <h2>Welcome to Kibra Community Connect</h2>
-            <p>This platform is designed to help residents of Kibra find local job opportunities, access skill development resources, and get mental health support.</p>
-        </section>
-
-        <!-- Job Listings Section -->
-        <section id="jobs">
-            <h2>Find Local Jobs</h2>
-            <ul id="job-list">
-                <li>Cyber Attendant - Company A - Kibra - <a href="#">Apply Here</a> (2024-10-22)</li>
-                <li>Shop Attendant - Company B - Kibra - <a href="#">Apply Here</a> (2024-10-21)</li>
-            </ul>
-            <button onclick="submitJob()">Submit a Job Listing</button>
-        </section>
-
-        <!-- Skill Development Section -->
-        <section id="skills">
-            <h2>Learn New Skills</h2>
-            <ul>
-                <li><a href="https://www.coursera.org">Free Coding Classes</a></li>
-                <li><a href="https://www.udemy.com">Graphic Design Basics</a></li>
-                <li><a href="#">Local Training Center - Kibra</a></li>
-            </ul>
-            <button onclick="startLearning()">Start Learning</button>
-        </section>
-
-        <!-- Mental Health Support Section -->
-        <section id="mental-health">
-            <h2>Mental Health Resources</h2>
-            <p>Your mental well-being is important. Contact local counselors or access online support services for help.</p>
-            <ul>
-                <li>Local Counselors: <a href="tel:+254700123456">+254 700 123456</a></li>
-                <li>Online Counseling: <a href="#">Access here</a></li>
-            </ul>
-        </section>
-
-        <!-- Community Announcements Section -->
-        <section id="announcements">
-            <h2>Community Announcements</h2>
-            <form id="announcement-form">
-                <label for="announcement">Submit your announcement:</label><br>
-                <textarea id="announcement" name="announcement" rows="4" cols="50"></textarea><br>
-                <button type="submit">Submit</button>
-            </form>
-            <div id="community-announcements">
-                <p>No announcements yet.</p>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Email: <a href="mailto:contact@kibra-community.com">contact@kibra-community.com</a></p>
-        </section>
-    </main>
-
-    <!-- Footer -->
+    
+    <nav>
+        <ul>
+            <li><a href="#job-listings">Job Listings</a></li>
+            <li><a href="#skills-development">Skill Development Resources</a></li>
+            <li><a href="#mental-health">Mental Health Support</a></li>
+            <li><a href="#community-announcements">Community Announcements</a></li>
+        </ul>
+    </nav>
+    
+    <section id="job-listings">
+        <h2>Find Local Jobs</h2>
+        <p>Connecting you to employment opportunities near you.</p>
+        <ul>
+            <li>
+                <strong>Job Title:</strong> Web Developer<br>
+                <strong>Company:</strong> XYZ Solutions<br>
+                <strong>Location:</strong> Kibra<br>
+                <a href="https://example.com/job-listing" target="_blank" rel="noopener noreferrer">Apply Now</a>
+            </li>
+            <li>
+                <strong>Job Title:</strong> Data Entry Clerk<br>
+                <strong>Company:</strong> ABC Corp<br>
+                <strong>Location:</strong> Nairobi<br>
+                <a href="https://example.com/job-listing" target="_blank" rel="noopener noreferrer">Apply Now</a>
+            </li>
+        </ul>
+        <a href="submit-job.html" target="_blank" rel="noopener noreferrer">Submit a Job Listing</a>
+    </section>
+    
+    <section id="skills-development">
+        <h2>Learn New Skills</h2>
+        <p>Explore courses and training to enhance your skills.</p>
+        <ul>
+            <li>
+                <strong>Online Courses:</strong> Free coding classes<br>
+                <a href="https://www.example.com/online-coding-course" target="_blank" rel="noopener noreferrer">Start Learning</a>
+            </li>
+            <li>
+                <strong>Local Training Centers:</strong> ABC Training Hub<br>
+                <a href="https://www.example.com/local-training" target="_blank" rel="noopener noreferrer">Visit Training Center</a>
+            </li>
+        </ul>
+    </section>
+    
+    <section id="mental-health">
+        <h2>Mental Health Resources</h2>
+        <p>Your mental health matters. Find the support you need.</p>
+        <ul>
+            <li><strong>Local Counselor:</strong> John Doe - 0700 000 000</li>
+            <li><strong>Online Counseling:</strong> <a href="https://www.befrienders.org" target="_blank" rel="noopener noreferrer">Befrienders Kenya</a></li>
+        </ul>
+    </section>
+    
+    <section id="community-announcements">
+        <h2>Stay Connected</h2>
+        <form>
+            <label for="announcement">Submit Your Announcement:</label><br>
+            <textarea id="announcement" rows="4" cols="50"></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+        <h3>Upcoming Events:</h3>
+        <ul>
+            <li>Youth Program - October 30, 2024</li>
+            <li>Job Fair - November 15, 2024</li>
+        </ul>
+    </section>
+    
     <footer>
-        <p>&copy; 2024 Kibra Community Connect. All rights reserved.</p>
+        <p>&copy; 2024 Kibra Community Connect</p>
     </footer>
+    
 
     <script src="/JS/script.js"></script>
 </body>
