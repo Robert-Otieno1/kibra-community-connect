@@ -1,6 +1,6 @@
 // Replace YOUR_APP_ID and YOUR_APP_KEY with your actual Adzuna credentials
 const appId = 'Y8b25e0fc';
-const appKey = '12718beef2137dcd7cfe6e2476b3f714';
+const appKey = '2436c69891141f542064d8e161c892bd';
 
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('nav a').forEach(anchor => {
