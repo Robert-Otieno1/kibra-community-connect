@@ -1,145 +1,100 @@
-/* Reset some default styles */
-body, h1, h2, h3, p {
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-}
-
-nav ul {
-    list-style-type: none;
-}
-
-/* Basic body styling */
-body {
     background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
 }
 
-/* Header/Banner styling */
-.banner {
-    position: relative;
-    height: 300px; /* Set the height of your banner */
-    overflow: hidden; /* Hide overflow for images that go outside */
-}
-
-.banner-images {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.banner-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the area */
-    opacity: 0; /* Start hidden */
-    transition: opacity 1s ease-in-out; /* Fade effect */
-}
-
-.banner-image.active {
-    opacity: 1; /* Show the active image */
-}
-
-.banner-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+/* Header and Navigation */
+header nav {
+    background-color: #2d6a4f;
     color: white;
-}
-
-.banner-text h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.banner-text p {
-    font-size: 1.2em;
-}
-
-/* Navigation styling */
-nav {
-    background: #3b8f57; /* Green background for nav */
-    padding: 10px;
-}
-
-nav ul {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 1em;
 }
 
-nav ul li {
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
     margin: 0 15px;
 }
 
-nav a {
+header nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
 }
 
-nav a:hover {
-    text-decoration: underline;
+/* Banner Styles */
+.banner {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
 }
 
-/* Section styling */
+.banner img {
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    display: none;
+}
+
+.banner img.active {
+    display: block;
+}
+
+/* Section Styles */
 section {
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    margin-bottom: 15px;
-}
-
-/* Footer styling */
-footer {
+    padding: 2em;
     text-align: center;
-    padding: 10px;
-    background: #3b8f57;
-    color: white;
 }
 
-/* Responsive styles */
+section h2 {
+    color: #2d6a4f;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form input, form textarea {
+    margin-bottom: 1em;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px;
+    background-color: #2d6a4f;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+    }
+
     .banner {
         height: 200px;
     }
 
-    .banner-text h1 {
-        font-size: 2em;
-    }
-
-    .banner-text p {
-        font-size: 1em;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    section {
-        margin: 10px;
-        padding: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .banner-text h1 {
-        font-size: 1.5em;
-    }
-
-    .banner-text p {
-        font-size: 0.9em;
+    .banner img {
+        height: 200px;
     }
 }

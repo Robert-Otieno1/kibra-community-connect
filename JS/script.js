@@ -1,43 +1,86 @@
-// Image rotation code
-let currentIndex = 0;
-const images = document.querySelectorAll('.banner-image');
-const totalImages = images.length;
+// Replace YOUR_APP_ID and YOUR_APP_KEY with your actual Adzuna credentials
+const appId = 'Y8b25e0fc';
+const appKey = '12718beef2137dcd7cfe6e2476b3f714';
 
-function changeImage() {
-    // Remove the 'active' class from the current image
-    images[currentIndex].classList.remove('active');
-
-    // Update the index to the next image
-    currentIndex = (currentIndex + 1) % totalImages;
-
-    // Add the 'active' class to the new current image
-    images[currentIndex].classList.add('active');
-}
-
-// Change image every second (1000 milliseconds)
-setInterval(changeImage, 1000);
-
-// Example of handling form submissions
-document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    const announcementText = event.target.querySelector('textarea').value;
-
-    if (announcementText) {
-        // Here, you can handle the announcement, e.g., send it to a server or display it
-        alert(`Announcement submitted: ${announcementText}`);
-
-        // Clear the textarea after submission
-        event.target.querySelector('textarea').value = '';
-    } else {
-        alert('Please enter an announcement before submitting.');
-    }
+// Smooth Scrolling for Navigation Links
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
 
-// Example of button click functionality (if you have buttons in the nav or elsewhere)
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function() {
-        // You can implement navigation logic or smooth scrolling here
-        alert(`Navigating to: ${this.textContent}`);
+// Event listener for job search button
+document.getElementById('searchJobs').addEventListener('click', function () {
+    const location = document.getElementById('location').value;
+    console.log('Searching jobs for location:', location); // Debugging log
+    fetchJobs(location);
+});
+
+// Function to fetch jobs using Adzuna API
+function fetchJobs(location) {
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const apiUrl = `https://api.adzuna.com/v1/api/jobs/ke/search/1?app_id=${appId}&app_key=${appKey}&results_per_page=5&where=${location}`;
+    const url = proxyUrl + apiUrl;
+
+    console.log('Fetching jobs from URL:', url); // Debugging log
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('API Response:', data); // Debugging log
+            displayJobs(data.results);
+        })
+        .catch(error => console.error('Error fetching jobs:', error));
+}
+
+// Function to display job listings on the page
+function displayJobs(jobs) {
+    const jobListings = document.getElementById('job-listings-content');
+    jobListings.innerHTML = ''; // Clear previous results
+
+    if (jobs.length === 0) {
+        jobListings.innerHTML = '<li>No jobs found in this location.</li>';
+        console.log('No jobs found'); // Debugging log
+    } else {
+        jobs.forEach(job => {
+            const jobItem = document.createElement('li');
+            jobItem.innerHTML = `
+                <strong>${job.title}</strong> at ${job.company.display_name}, ${job.location.display_name}
+                <br><a href="${job.redirect_url}" target="_blank">Apply Now</a>
+            `;
+            jobListings.appendChild(jobItem);
+        });
+    }
+}
+
+// Event listener for contact form submission
+document.addEventListener("DOMContentLoaded", function() {
+    // All of your existing JavaScript here...
+    // Smooth Scrolling for Navigation Links
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     });
+
+    // Event listener for job search button
+    const searchBtn = document.getElementById('searchJobs');
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function () {
+            const location = document.getElementById('location').value;
+            console.log('Searching jobs for location:', location); // Debugging log
+            fetchJobs(location);
+        });
+    }
 });
