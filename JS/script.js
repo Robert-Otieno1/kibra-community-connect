@@ -21,13 +21,10 @@ document.getElementById('searchJobs').addEventListener('click', function () {
 
 // Function to fetch jobs using Adzuna API
 function fetchJobs(location) {
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/corsdemo'; // CORS Proxy for testing
-    const apiUrl = `https://api.adzuna.com/v1/api/jobs/ke/search/1?app_id=${appId}&app_key=${appKey}&results_per_page=5&where=${location}`;
-    const url = proxyUrl + apiUrl;
+    const apiUrl = `https://api.adzuna.com/v1/api/jobs/za/search/1?app_id=${appId}&app_key=${appKey}&results_per_page=5&where=${location}`;
+    console.log('Fetching jobs from URL:', apiUrl);
 
-    console.log('Fetching jobs from URL:', url); // Debugging log
-
-    fetch(url)
+    fetch(apiUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
@@ -35,11 +32,12 @@ function fetchJobs(location) {
             return response.json();
         })
         .then(data => {
-            console.log('API Response:', data); // Debugging log
+            console.log('API Response:', data);
             displayJobs(data.results);
         })
         .catch(error => console.error('Error fetching jobs:', error));
 }
+
 
 // Function to display job listings on the page
 function displayJobs(jobs) {
