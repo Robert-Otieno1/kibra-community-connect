@@ -1,6 +1,6 @@
-// Replace YOUR_APP_ID and YOUR_APP_KEY with your actual Adzuna credentials
-const appId = 'Y8b25e0fc';
-const appKey = '2436c69891141f542064d8e161c892bd';
+// Replace with your actual Adzuna credentials
+const appId = '8b25e0fc'; // Your App ID
+const appKey = '2436c69891141f542064d8e161c892bd'; // Your App Key
 
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('nav a').forEach(anchor => {
@@ -21,7 +21,7 @@ document.getElementById('searchJobs').addEventListener('click', function () {
 
 // Function to fetch jobs using Adzuna API
 function fetchJobs(location) {
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // CORS Proxy for testing
     const apiUrl = `https://api.adzuna.com/v1/api/jobs/ke/search/1?app_id=${appId}&app_key=${appKey}&results_per_page=5&where=${location}`;
     const url = proxyUrl + apiUrl;
 
@@ -62,25 +62,8 @@ function displayJobs(jobs) {
 }
 
 // Event listener for contact form submission
-document.addEventListener("DOMContentLoaded", function() {
-    // All of your existing JavaScript here...
-    // Smooth Scrolling for Navigation Links
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Event listener for job search button
-    const searchBtn = document.getElementById('searchJobs');
-    if (searchBtn) {
-        searchBtn.addEventListener('click', function () {
-            const location = document.getElementById('location').value;
-            console.log('Searching jobs for location:', location); // Debugging log
-            fetchJobs(location);
-        });
-    }
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent page reload
+    alert("Thank you for contacting us!"); // Simple feedback for form submission
+    // Here you could add additional code to send the form data to your server
 });
