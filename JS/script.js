@@ -21,7 +21,7 @@ document.getElementById('searchJobs').addEventListener('click', function () {
 
 // Function to fetch jobs using Adzuna API
 function fetchJobs(location) {
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // CORS Proxy for testing
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/corsdemo'; // CORS Proxy for testing
     const apiUrl = `https://api.adzuna.com/v1/api/jobs/ke/search/1?app_id=${appId}&app_key=${appKey}&results_per_page=5&where=${location}`;
     const url = proxyUrl + apiUrl;
 
