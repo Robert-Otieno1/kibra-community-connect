@@ -108,9 +108,11 @@ textarea {
     background-color: #5cb85c;
     color: white;
     padding: 10px 20px;
+    text-decoration: none; /* Prevents underline on links */
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: inline-block; /* Makes sure it behaves like a button */
 }
 
 .btn:hover {
