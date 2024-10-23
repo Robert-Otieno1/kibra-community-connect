@@ -5,65 +5,61 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f5f5f5; /* Light gray background */
-    width: 100%; /* Ensure the body takes the full width */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    background-color: #f5f5f5;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 header.banner {
     position: relative;
     overflow: hidden;
     height: 530px;
-    width: 100%;  /* Ensure banner takes full width */
+    width: 100%;
 }
 
 .banner-images {
     position: relative;
     display: flex;
     width: 100%;
-    height: 100%;  /* Ensure the images fill the banner height */
-    transition: transform 1s ease-in-out; /* Smooth transition effect */
+    height: 100%;
 }
 
 .banner-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image covers the banner without distorting */
-    position: absolute; /* Make sure the images stack on top of each other */
+    object-fit: cover;
+    position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    z-index: 1; /* Ensure banner images are on top */
+    transition: opacity 3s ease, transform 3s ease; /* Smooth and slow transition */
+    z-index: 1;
 }
 
 .banner-image.active {
     opacity: 1;
-    z-index: 2; /* Active image is on top */
+    z-index: 2;
+    transform: scale(1.05); /* Slight zoom-in for a dynamic effect */
 }
 
 .banner-text {
     position: absolute;
     bottom: 50px;
-    /*Adjustpositiontocenterbetter*/left: 50%;
-    /*Centerhorizontally*/transform: translateX(-50%);
-    /*Adjustforexactcentering*/color: white;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
     z-index: 3;
-    /*Ensurethetextisaboveimages*/background-color: rgba(0, 0, 0, 0.7);
-    /*Addasemi-transparentbackgroundtotextforvisibility*/padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
     border-radius: 5px;
     text-align: center;
-     /* Center text */;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
+    font-size: 1.5em; /* Increased size for better readability */
 }
 
 nav {
     background-color: #333;
     width: 100%;
-    padding: 10px 0;
+    padding: 15px 0; /* Increased padding for a cleaner look */
 }
 
 nav ul {
@@ -72,51 +68,67 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    gap: 30px; /* Spacing between nav items */
 }
 
 nav li {
-    margin: 0 20px;
+    margin: 0;
 }
 
 nav a {
     color: white;
     text-decoration: none;
+    font-size: 1.1em; /* Slightly larger font for better readability */
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #b7f3b7; /* Change color on hover */
 }
 
 section {
-    padding: 20px;
+    padding: 40px 20px; /* Increased padding */
     width: 80%;
     background-color: white;
+    margin-top: 20px; /* Added space between sections */
 }
 
 section h2 {
     border-bottom: 2px solid #333;
+    padding-bottom: 10px; /* Added padding to make the heading stand out */
 }
 
 .job-description {
     border: 1px solid #ddd;
-    padding: 15px;
-    margin: 10px 0;
+    padding: 20px;
+    margin: 15px 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 textarea {
     width: 100%;
-    height: 100px;
+    height: 120px;
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners for better aesthetics */
+    border: 1px solid #ddd;
+    resize: none; /* Prevent resizing */
 }
 
 .btn {
     background-color: #5cb85c;
     color: white;
-    padding: 10px 20px;
-    text-decoration: none; /* Prevents underline on links */
-    border: none;
+    padding: 12px 24px; /* Larger padding for better touch area */
+    text-decoration: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: inline-block; /* Makes sure it behaves like a button */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
 }
 
 .btn:hover {
     background-color: #4cae4c;
+    transform: scale(1.1); /* Increased scale for more emphasis */
 }
 
 footer {
@@ -124,53 +136,49 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     width: 100%;
 }
 
 .announcement {
     border: 1px solid #ddd;
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #f9f9f9; /* Light background for announcements */
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
 }
-
-
 
 /* Responsive Design */
 @media (max-width: 600px) {
     section {
         width: 95%;
     }
-
     nav ul {
         flex-direction: column;
         align-items: center;
     }
-
-    
     nav li {
         margin: 10px 0;
     }
 }
 
-/* Responsive Adjustments */
 @media (max-width: 600px) {
     header.banner {
-        height: 200px; /* Reduced height for smaller screens */
+        height: 200px;
     }
-
-    .banner-image {
-        height: auto; /* Let the height adjust based on the image aspect ratio */
-    }
-
     .banner-text {
-        font-size: 1.5em; /* Smaller font size for mobile */
-        left: 10px; /* Adjust left position */
-        bottom: 10px; /* Adjust bottom position */
+        font-size: 1.2em;
+        left: 10px;
+        bottom: 10px;
     }
+}
 
-    .banner-images {
-        height: auto; /* Allow height to auto adjust */
-    }
+/* Transition effect for image carousel */
+.banner-image {
+    opacity: 0;
+    transition: opacity 3s ease, transform 3s ease;
+}
+
+.banner-image.active {
+    opacity: 1;
+    transform: scale(1.05);
 }
