@@ -10,7 +10,7 @@ function fetchJobDescription(title, location) {
 
   const url = `https://jsearch.p.rapidapi.com/search?query=${encodeURIComponent(title)}&location=${encodeURIComponent(location)}`;
   const headers = {
-    'X-RapidAPI-Key': '50949b3c7emshb071ff7cca92991p16e61ejsn778cdc6258bf', // Replace with your actual API key
+    'X-RapidAPI-Key': 'qeJsNv5y.F5lyJMtdbxmqgjB605L42', // Replace with your actual API key
     'X-RapidAPI-Host': 'jsearch.p.rapidapi.com',
   };
 
