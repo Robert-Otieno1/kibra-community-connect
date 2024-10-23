@@ -1,5 +1,13 @@
-// Function to fetch job descriptions from RapidAPI
+// Function to fetch job descriptions from RapidAPI with enhanced error handling
 function fetchJobDescription(title, location) {
+  // Input validation
+  if (!title || !location) {
+    console.error("Title and location are required to fetch job descriptions.");
+    const resultsContainer = document.getElementById("job-results");
+    resultsContainer.innerHTML = `<p>Title and location are required fields. Please fill in both and try again.</p>`;
+    return;
+  }
+
   const url = `https://jsearch.p.rapidapi.com/search?query=${encodeURIComponent(title)}&location=${encodeURIComponent(location)}`;
   const headers = {
     'X-RapidAPI-Key': '50949b3c7emshb071ff7cca92991p16e61ejsn778cdc6258bf', // Replace with your actual API key
@@ -9,37 +17,37 @@ function fetchJobDescription(title, location) {
   fetch(url, { method: 'GET', headers })
     .then(response => {
       if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.statusText}`);
+        // Handle different HTTP error codes
+        if (response.status === 429) {
+          throw new Error("API rate limit exceeded. Please try again later.");
+        } else if (response.status === 404) {
+          throw new Error("No job descriptions found for the given title and location.");
+        } else if (response.status >= 500) {
+          throw new Error("Server error. Please try again later.");
+        } else {
+          throw new Error(`Unexpected error: ${response.statusText}`);
+        }
       }
       return response.json();
     })
-    .then(data => displayJobDescription(data))
+    .then(data => {
+      // Check if the API returns an empty or invalid response
+      if (!data || data.length === 0) {
+        throw new Error("No job descriptions found. Try refining your search.");
+      }
+
+      // Display the job descriptions
+      displayJobDescription(data);
+    })
     .catch(error => {
       console.error("Error fetching jobs:", error);
+      
+      // Display an error message in the UI
       const resultsContainer = document.getElementById("job-results");
       resultsContainer.innerHTML = `<p>Error fetching job descriptions: ${error.message}. Please try again later.</p>`;
     });
 }
 
-// Function to display job descriptions
-function displayJobDescription(data) {
-  const resultsContainer = document.getElementById("job-results");
-  const jobs = data.data; // Assuming the response structure contains a 'data' array
-
-  jobs.forEach(job => {
-    const jobDescriptionDiv = document.createElement("div");
-    jobDescriptionDiv.className = "job-description";
-    jobDescriptionDiv.innerHTML = `
-      <h3>${job.job_title}</h3>
-      <p>${job.job_short_description}</p>
-      <h4>Job Requirements:</h4>
-      <p>${job.job_requirements.join(", ")}</p>
-      <h4>Job Responsibilities:</h4>
-      <p>${job.job_responsibilities.join(", ")}</p>
-    `;
-    resultsContainer.appendChild(jobDescriptionDiv);
-  });
-}
 
 // Form submission handling for job search
 const jobForm = document.getElementById("job-form");
