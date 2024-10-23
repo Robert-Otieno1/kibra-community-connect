@@ -6,87 +6,113 @@
     <title>Kibra Community Connect</title>
     <link rel="stylesheet" href="./CSS/styles.css">
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <h1>Kibra Community Connect</h1>
-            <ul>
-                <li><a href="#job-listings">Jobs</a></li>
-                <li><a href="#skill-development">Skills</a></li>
-                <li><a href="#mental-health">Mental Health</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Responsive Banner -->
-    <section class="banner">
-        <div class="banner-slider">
-            <img src="./Images/image(1).jpg" alt="Image 1" class="banner-image active">
-            <img src="./Images/image(2).jpg" alt="Image 2" class="banner-image">
-            <img src="./Images/image(3).jpg" alt="Image 3" class="banner-image">
-            <img src="./Images/image(4).jpg" alt="Image 4" class="banner-image">
-            <img src="./Images/image(5).jpg" alt="Image 5" class="banner-image">
-            <img src="./Images/image(6).jpg" alt="Image 6" class="banner-image">
-            <img src="./Images/image(7).jpg" alt="Image 7" class="banner-image">
-            <img src="./Images/image(8).jpg" alt="Image 8" class="banner-image">
-            <img src="./Images/image(9).jpg" alt="Image 9" class="banner-image">
-            <img src="./Images/image(10).jpg" alt="Image 10" class="banner-image">
-            <img src="./Images/image(11).jpg" alt="Image 11" class="banner-image">
-            <img src="./Images/image(12).jpg" alt="Image 12" class="banner-image">
-            <img src="./Images/image(13).jpg" alt="Image 13" class="banner-image">
-        </div>
-    </section>
+<header class="banner">
+    <div class="banner-images">
+        <img src="/Images/image(1).jpg" alt="Image 1" class="banner-image active">
+        <img src="/Images/image(2).jpg" alt="Image 2" class="banner-image">
+        <img src="/Images/image(4).jpg" alt="Image 3" class="banner-image">
+        <img src="/Images/image(3).jpg" alt="Image 4" class="banner-image">
+        <img src="/Images/image(5).jpg" alt="Image 5" class="banner-image">
+        <img src="/Images/image(6).jpg" alt="Image 6" class="banner-image">
+        <img src="/Images/image(7).jpg" alt="Image 7" class="banner-image">
+        <img src="/Images/image(8).jpg" alt="Image 8" class="banner-image">
+        <img src="/Images/image(9).jpg" alt="Image 9" class="banner-image">
+        <img src="/Images/image(10).jpg" alt="Image 10" class="banner-image">
+        <img src="/Images/image(11).jpg" alt="Image 11" class="banner-image">
+        <img src="/Images/image(12).jpg" alt="Image 12" class="banner-image">
+        <img src="/Images/image(13).jpg" alt="Image 13" class="banner-image">
+    </div>
+</header>
 
-    <!-- Job Listings Section -->
-    <section id="job-listings">
-        <h2>Find Jobs in Your Area</h2>
-        <div class="job-container">
-            <input type="text" id="location" placeholder="Enter location" value="Nairobi">
-            <button id="searchJobs">Search Jobs</button>
-            <ul id="job-listings-content">
-                <!-- Job listings will be populated here via API -->
-            </ul>
-        </div>
-    </section>
+<div class="header-text">
+    <h1>Welcome to Kibra Community Connect</h1>
+    <p>Bridging Kibra with job opportunities, skill development, and support services.</p>
+</div>
 
-    <!-- Skill Development Section -->
-    <section id="skill-development">
-        <h2>Learn New Skills</h2>
-        <p>Explore available resources and platforms to develop your tech skills.</p>
-        <ul>
-            <li><a href="https://www.coursera.org" target="_blank">Coursera</a></li>
-            <li><a href="https://www.udemy.com" target="_blank">Udemy</a></li>
-            <li><a href="https://www.khanacademy.org" target="_blank">Khan Academy</a></li>
-        </ul>
-    </section>
+<nav>
+    <ul>
+        <li><a href="#jobs">Job Listings</a></li>
+        <li><a href="#skills">Skill Development</a></li>
+        <li><a href="#mental-health">Mental Health Support</a></li>
+        <li><a href="#announcements">Community Announcements</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+    </ul>
+</nav>
 
-    <!-- Mental Health Resources Section -->
-    <section id="mental-health">
-        <h2>Mental Health Resources</h2>
-        <p>Find mental health services and support in your community.</p>
-        <ul>
-            <li><a href="https://befrienderskenya.org" target="_blank">Befrienders Kenya</a></li>
-            <li><a href="https://www.redcross.or.ke" target="_blank">Kenya Red Cross</a></li>
-        </ul>
-    </section>
+<section id="jobs">
+    <h2>Find Local Jobs</h2>
+    <p>Check out the latest job opportunities in and around Kibra.</p>
+    <form id="job-form">
+        <input type="text" id="job-title" placeholder="Job Title" required>
+        <input type="text" id="location" placeholder="Location" required>
+        <button type="submit" class="btn">Search Job</button>
+    </form>
+    <div id="job-results" class="job-listings">
+        <!-- Job listings will be dynamically inserted here -->
+    </div>
+    <div class="resources">
+        <h3>Additional Resources</h3>
+        <p>Explore these links for more job opportunities:</p>
+        <button class="btn" onclick="window.location.href='https://www.jobberman.com/'">Jobberman</button>
+        <button class="btn" onclick="window.location.href='https://www.myjobmag.co.ke/'">MyJobMag</button>
+        <button class="btn" onclick="window.location.href='https://www.fuzu.com/'">Fuzu</button>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Get in Touch</h2>
-        <form id="contact-form">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message"></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </section>
+<section id="skills">
+    <h2>Learn New Skills</h2>
+    <p>Explore free and affordable courses and local training centers.</p>
+    <div class="skill-resources">
+        <p>Check out these platforms to enhance your skills:</p>
+        <button class="btn" onclick="window.location.href='https://www.coursera.org/'">Coursera</button>
+        <button class="btn" onclick="window.location.href='https://www.udemy.com/'">Udemy</button>
+        <button class="btn" onclick="window.location.href='https://www.khanacademy.org/'">Khan Academy</button>
+    </div>
+    <div class="resources">
+        <h3>Additional Resources</h3>
+        <p>Learn more through these educational links:</p>
+        <button class="btn" onclick="window.location.href='https://www.edx.org/'">edX</button>
+        <button class="btn" onclick="window.location.href='https://www.codecademy.com/'">Codecademy</button>
+    </div>
+</section>
 
-    <footer>
-        <p>© 2024 Kibra Community Connect. All rights reserved.</p>
-    </footer>
+<section id="mental-health">
+    <h2>Mental Health Resources</h2>
+    <p>Learn about mental health support services available in the community.</p>
+    <div class="mental-health-info">
+        <p>Access valuable resources for mental well-being:</p>
+        <button class="btn" onclick="window.location.href='https://www.mentalhealth.gov/'">MentalHealth.gov</button>
+        <button class="btn" onclick="window.location.href='https://www.psychologytoday.com/'">Psychology Today</button>
+        <button class="btn" onclick="window.location.href='https://www.nami.org/Home'">NAMI</button>
+    </div>
+    <div class="resources">
+        <h3>Additional Resources</h3>
+        <p>Find support and guidance:</p>
+        <button class="btn" onclick="window.location.href='https://www.betterhelp.com/'">BetterHelp</button>
+        <button class="btn" onclick="window.location.href='https://www.talkspace.com/'">Talkspace</button>
+    </div>
+</section>
 
-    <script src="./JS/script.js"></script>
+<section id="announcements">
+    <h2>Stay Connected</h2>
+    <p>Submit your announcements or community events here.</p>
+    <form id="announcement-form">
+        <textarea placeholder="Your announcement here..." required></textarea>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+    <div id="announcements-list">
+        <!-- Submitted announcements will appear here -->
+    </div>
+</section>
+
+
+<footer>
+    <p>&copy; 2024 Kibra Community Connect</p>
+</footer>
+
+<script src="./JS/script.js"></script>
 </body>
 </html>

@@ -1,229 +1,173 @@
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5; /* Light gray background */
+    width: 100%; /* Ensure the body takes the full width */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-header {
-    background-color: #4CAF50; /* Green background */
-    color: white;
-    padding: 10px 20px;
+header.banner {
+    position: relative;
+    overflow: hidden;
+    height: 530px;
+    width: 100%;  /* Ensure banner takes full width */
+}
+
+.banner-images {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;  /* Ensure the images fill the banner height */
+    transition: transform 1s ease-in-out; /* Smooth transition effect */
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the banner without distorting */
+    position: absolute; /* Make sure the images stack on top of each other */
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1; /* Ensure banner images are on top */
+}
+
+.banner-image.active {
+    opacity: 1;
+    z-index: 2; /* Active image is on top */
+}
+
+.banner-text {
+    position: absolute;
+    bottom: 50px;
+    /*Adjustpositiontocenterbetter*/left: 50%;
+    /*Centerhorizontally*/transform: translateX(-50%);
+    /*Adjustforexactcentering*/color: white;
+    z-index: 3;
+    /*Ensurethetextisaboveimages*/background-color: rgba(0, 0, 0, 0.7);
+    /*Addasemi-transparentbackgroundtotextforvisibility*/padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+     /* Center text */;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav h1 {
-    margin: 0;
+    background-color: #333;
+    width: 100%;
+    padding: 10px 0;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+nav li {
+    margin: 0 20px;
 }
 
-nav ul li a {
+nav a {
     color: white;
     text-decoration: none;
 }
 
-.banner {
-    position: relative;
-    overflow: hidden;
-    height: 300px; /* Set height for the banner */
-}
-
-.banner-slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.banner-image {
-    width: 100%;
-    height: 300px; /* Keep the same height */
-    object-fit: cover; /* Maintain aspect ratio */
-}
-
-#job-listings {
-    padding: 20px;
-    background: #f4f4f4;
-}
-
-.job-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; /* Stack elements */
-}
-
-input[type="text"] {
-    padding: 10px;
-    margin: 10px 0;
-    width: 60%; /* Default width for input */
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #4CAF50; /* Green background for button */
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-}
-
-h2 {
-    text-align: center;
-}
-
-#job-listings-content {
-    list-style: none;
-    padding: 0;
-}
-
-#job-listings-content li {
-    background: #fff;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Skill Development and Mental Health Resources */
 section {
     padding: 20px;
+    width: 80%;
+    background-color: white;
 }
 
 section h2 {
-    text-align: center;
-    margin-bottom: 10px;
+    border-bottom: 2px solid #333;
 }
 
-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-section ul li {
+.job-description {
+    border: 1px solid #ddd;
+    padding: 15px;
     margin: 10px 0;
 }
 
-/* Contact Form Styles */
-#contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+textarea {
+    width: 100%;
+    height: 100px;
 }
 
-#contact-form input,
-#contact-form textarea {
-    padding: 10px;
-    margin: 10px 0;
-    width: 60%; /* Default width for input */
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #4CAF50;
+.btn {
+    background-color: #5cb85c;
     color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+.btn:hover {
+    background-color: #4cae4c;
+}
+
+footer {
+    margin-top: auto;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.announcement {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f9f9f9; /* Light background for announcements */
+}
+
+
 
 /* Responsive Design */
-
-/* Mobile Styles */
 @media (max-width: 600px) {
-    nav ul li {
-        display: block; /* Stack navigation items vertically */
-        margin: 10px 0;
+    section {
+        width: 95%;
     }
 
     nav ul {
-        padding: 0; /* Remove default padding */
+        flex-direction: column;
+        align-items: center;
     }
 
-    .job-container {
-        flex-direction: column; /* Stack elements vertically */
-        width: 90%; /* Adjust input width for smaller screens */
-    }
-
-    input[type="text"] {
-        width: 100%; /* Full width for input on mobile */
-    }
-
-    button {
-        width: 100%; /* Full width for button on mobile */
-    }
-
-    #job-listings {
-        margin: 10px; /* Reduce margin for mobile devices */
-    }
-
-    #job-listings-content li {
-        font-size: 0.9em; /* Slightly smaller font size */
-        padding: 10px; /* Reduce padding */
+    nav li {
+        margin: 10px 0;
     }
 }
 
-/* Tablet Styles */
-@media (min-width: 601px) and (max-width: 1024px) {
-    nav ul li {
-        display: inline-block; /* Show items inline with some spacing */
-        margin: 0 10px; /* Smaller margin on tablets */
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    header.banner {
+        height: 200px; /* Reduced height for smaller screens */
     }
 
-    .job-container {
-        width: 80%; /* Adjust container width for tablets */
+    .banner-image {
+        height: auto; /* Let the height adjust based on the image aspect ratio */
     }
 
-    input[type="text"] {
-        width: 80%; /* Adjust input width for tablets */
+    .banner-text {
+        font-size: 1.5em; /* Smaller font size for mobile */
+        left: 10px; /* Adjust left position */
+        bottom: 10px; /* Adjust bottom position */
     }
 
-    button {
-        width: 40%; /* Make buttons smaller on tablets */
-    }
-
-    #job-listings-content li {
-        font-size: 1em; /* Maintain font size for tablets */
-        padding: 12px; /* Maintain padding for job listings */
-    }
-}
-
-/* Desktop Styles */
-@media (min-width: 1025px) {
-    nav ul li {
-        display: inline; /* Keep items inline */
-    }
-
-    .job-container {
-        width: 60%; /* Wider container for desktop */
-    }
-
-    input[type="text"] {
-        width: 60%; /* Wider input field on desktop */
-    }
-
-    button {
-        width: auto; /* Default button width on desktop */
-    }
-
-    #job-listings-content li {
-        font-size: 1.1em; /* Larger font size on desktop */
-        padding: 15px; /* Standard padding */
+    .banner-images {
+        height: auto; /* Allow height to auto adjust */
     }
 }
